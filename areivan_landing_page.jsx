@@ -104,6 +104,24 @@ function IconSpark({ className = "" }) {
   );
 }
 
+function IconWhatsApp({ className = "" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.298-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.66-1.595-1.075-2.165-.4-.567-1.02-.685-1.37-.753-.348-.067-1.596.024-2.275.403-.679.378-1.074.893-1.123 1.11-.05.218.05.522.15.673l.448.448c.1.099.222.224.35.298.575.33 1.175.33 1.575.198.397-.132 1.59-.616 1.937-1.77.338-1.124.338-2.185.275-2.288-.062-.103-.223-.149-.447-.272l-.521-.348c-.074-.05-.148-.099-.223-.149-.099-.05-.198-.05-.298-.05-.248 0-.496.099-.672.298-.173.198-.595.67-.595 1.448s.595 1.683.595 1.683.347.298.397.397c.099.099.223.248.372.348.173.124.348.173.546.099.198-.074.771-.297 1.264-.843.492-.546.843-1.124.919-1.316.075-.198.025-.397-.025-.521-.05-.124-.074-.272.173-.523l.521-.521c.198-.198.347-.347.397-.52.05-.173.025-.348-.025-.496l-.173-.595c-.074-.173-.174-.347-.348-.521zM12 2.94c.84 0 1.667.22 2.404.645l-1.102 1.058c-.104-.199-.298-.497-.497-.596l1.06-1.107c.422-.397.922-.645 1.448-.645.552 0 1.074.214 1.462.602l.602.602c.388.388.602.91.602 1.462 0 .526-.248 1.026-.645 1.448l-1.107 1.06c-.099-.199-.397-.497-.596-.497l1.058-1.102c.425.737.645 1.564.645 2.404 0 .84-.22 1.667-.645 2.404l-1.058 1.102c.199.104.497.298.596.497l-1.06 1.107c-.397.422-.897.645-1.448.645-.552 0-1.074-.214-1.462-.602l-.602-.602c-.388-.388-.602-.91-.602-1.462 0-.526.248-1.026.645-1.448l1.107-1.06c.099.199.397.497.596.497l-1.058 1.102c-.425-.737-.645-1.564-.645-2.404z" fill="currentColor" />
+      <path d="M8.882 13c-.577 0-1.124-.15-1.613-.441l-.116.115c.878.878 2.012 1.326 3.195 1.326.02 0 .04 0 .06-.001 1.183 0 2.317-.448 3.195-1.326l-.115-.115c-.49.29-1.037.44-1.614.44-.013 0-.026-.001-.039-.001-1.183 0-2.317-.448-3.195-1.326l-.116.115c.878-.878 1.592-1.946 1.916-3.109.325-1.163.325-2.394 0-3.557l-.116-.116c-.49.29-1.037.44-1.614.44-.013 0-.026-.001-.039-.001-1.183 0-2.317-.448-3.195-1.326l-.116.115c.878.878 2.012 1.326 3.195 1.326.02 0 .04 0 .06-.001 1.183 0 2.317-.448 3.195-1.326z" fill="currentColor" />
+    </svg>
+  );
+}
+
+function IconLinkedIn({ className = "" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <rect x="2" y="2" width="20" height="20" rx="2" stroke="currentColor" strokeWidth="2" />
+      <path d="M7 11v6M7 7v.01M11 11v6m3-6v3a3 3 0 0 0-3-3v-1a2 2 0 0 1 2-2 2 2 0 0 1 2 2v2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 const projects = [
   {
     name: "Apex Ride",
@@ -387,12 +405,12 @@ function ProjectPreviewModal({ project, onClose }) {
                     <div className="h-3 w-3 rounded-full bg-yellow-400" />
                     <div className="h-3 w-3 rounded-full bg-green-400" />
                   </div>
-                  <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-slate-300">Visual Preview</span>
+                  <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-slate-300">Live Preview</span>
                 </div>
               </div>
 
-              <div className="p-5">
-                <div className="mb-6 flex items-center justify-between rounded-2xl bg-black/20 p-4">
+              <div className="space-y-4 p-5">
+                <div className="flex items-center justify-between rounded-2xl bg-black/20 p-4">
                   <div>
                     <p className="text-xs font-black uppercase tracking-[0.24em] text-sky-300">{project.name}</p>
                     <h3 className="mt-2 text-2xl font-black">{project.mockup}</h3>
@@ -402,57 +420,12 @@ function ProjectPreviewModal({ project, onClose }) {
                   </div>
                 </div>
 
-                <div className="space-y-4">
-                  <div className="grid grid-cols-3 gap-3">
-                    <div className="rounded-2xl bg-sky-400/20 p-4">
-                      <div className="mb-8 h-2 w-12 rounded-full bg-sky-200/70" />
-                      <div className="h-8 rounded-xl bg-white/10" />
-                    </div>
-                    <div className="rounded-2xl bg-white/10 p-4">
-                      <div className="mb-8 h-2 w-12 rounded-full bg-white/20" />
-                      <div className="h-8 rounded-xl bg-white/10" />
-                    </div>
-                    <div className="rounded-2xl bg-white/10 p-4">
-                      <div className="mb-8 h-2 w-12 rounded-full bg-white/20" />
-                      <div className="h-8 rounded-xl bg-white/10" />
-                    </div>
-                  </div>
-
-                  <div className="rounded-2xl border border-white/10 bg-black/20 p-5">
-                    <div className="mb-5 flex items-center justify-between">
-                      <div className="h-3 w-32 rounded-full bg-sky-300/50" />
-                      <div className="h-3 w-16 rounded-full bg-white/10" />
-                    </div>
-                    <div className="grid grid-cols-6 gap-2">
-                      <div className="h-20 rounded-xl bg-white/10 md:h-28" />
-                      <div className="h-16 self-end rounded-xl bg-white/10 md:h-20" />
-                      <div className="h-24 rounded-xl bg-sky-400/25 md:h-36" />
-                      <div className="h-20 self-end rounded-xl bg-white/10 md:h-24" />
-                      <div className="h-24 rounded-xl bg-white/10 md:h-32" />
-                      <div className="h-14 self-end rounded-xl bg-sky-400/20 md:h-16" />
-                    </div>
-                  </div>
-
-                  <div className="grid gap-3 sm:grid-cols-2">
-                    <div className="rounded-2xl bg-white/10 p-4">
-                      <div className="mb-3 h-3 w-24 rounded-full bg-white/20" />
-                      <div className="space-y-2">
-                        <div className="h-3 rounded-full bg-white/10" />
-                        <div className="h-3 w-4/5 rounded-full bg-white/10" />
-                        <div className="h-3 w-3/5 rounded-full bg-white/10" />
-                      </div>
-                    </div>
-                    <div className="rounded-2xl bg-white/10 p-4">
-                      <div className="mb-3 h-3 w-24 rounded-full bg-white/20" />
-                      <div className="grid grid-cols-4 gap-2">
-                        <div className="h-12 rounded-xl bg-white/10" />
-                        <div className="h-12 rounded-xl bg-sky-400/20" />
-                        <div className="h-12 rounded-xl bg-white/10" />
-                        <div className="h-12 rounded-xl bg-white/10" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <iframe
+                  src={project.href}
+                  title={`${project.name} live preview`}
+                  loading="lazy"
+                  className="h-[420px] w-full rounded-xl border border-white/10 bg-white"
+                />
               </div>
             </div>
           </div>
@@ -462,8 +435,171 @@ function ProjectPreviewModal({ project, onClose }) {
   );
 }
 
+function ContactModal({ onClose }) {
+  const dialogRef = useRef(null);
+  const closeButtonRef = useRef(null);
+  const shouldReduceMotion = useReducedMotion();
+
+  const contactMethods = [
+    { label: "Email", value: "ivanangeles0311@icloud.com", icon: "email", href: "mailto:ivanangeles0311@icloud.com" },
+    { label: "WhatsApp", value: "+52 55 3782 8350", icon: "whatsapp", href: "https://wa.me/525537828350" },
+    { label: "LinkedIn", value: "areivan", icon: "linkedin", href: "https://www.linkedin.com/in/areivan/" },
+    { label: "GitHub", value: "AREIVAN", icon: "github", href: "https://github.com/AREIVAN" },
+    { label: "Website", value: "areivan.com", icon: "globe", href: "https://www.areivan.com" },
+    { label: "Location", value: "Mexico", icon: "map", href: null },
+  ];
+
+  useEffect(() => {
+    if (!onClose) return undefined;
+
+    const previousActiveElement = document.activeElement;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    closeButtonRef.current?.focus();
+
+    function handleKeyDown(event) {
+      if (event.key === "Escape") {
+        onClose();
+        return;
+      }
+
+      if (event.key !== "Tab" || !dialogRef.current) return;
+
+      const focusableElements = dialogRef.current.querySelectorAll(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      );
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      if (!firstElement || !lastElement) return;
+
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+      if (previousActiveElement instanceof HTMLElement) {
+        previousActiveElement.focus();
+      }
+    };
+  }, [onClose]);
+
+  const actionButtons = [
+    { label: "Send email", href: "mailto:ivanangeles0311@icloud.com" },
+    { label: "WhatsApp", href: "https://wa.me/525537828350" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/areivan/" },
+  ];
+
+  return (
+    <motion.div
+      className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-slate-950/70 px-4 py-6 backdrop-blur-md sm:items-center"
+      onMouseDown={(event) => {
+        if (event.target === event.currentTarget) onClose();
+      }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: shouldReduceMotion ? 0 : 0.18 }}
+    >
+      <motion.div
+        ref={dialogRef}
+        className="relative my-auto w-full max-w-lg overflow-y-auto rounded-[2rem] border border-white/10 bg-slate-950 text-white shadow-2xl shadow-slate-950/40 outline-none"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="contact-title"
+        initial={shouldReduceMotion ? false : { opacity: 0, y: 18, scale: 0.97 }}
+        animate={shouldReduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
+        exit={shouldReduceMotion ? undefined : { opacity: 0, y: 10, scale: 0.98 }}
+        transition={{ duration: shouldReduceMotion ? 0 : 0.22, ease: [0.2, 0, 0, 1] }}
+      >
+        <button
+          ref={closeButtonRef}
+          type="button"
+          onClick={onClose}
+          className="sticky left-full top-5 z-20 mr-5 mt-5 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-xl font-bold text-white transition hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+          aria-label="Close contact modal"
+        >
+          ×
+        </button>
+
+        <div className="p-8">
+          <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-3xl bg-sky-400/15 text-sky-300">
+            <span className="text-2xl">✉</span>
+          </div>
+
+          <h2 id="contact-title" className="text-3xl font-black tracking-tight">Contact Areivan</h2>
+          <p className="mt-4 text-lg leading-7 text-slate-300">
+            Let's connect around software, robotics, automation or product ideas.
+          </p>
+
+          <div className="mt-8 space-y-4">
+            {contactMethods.map((method) => (
+              method.href ? (
+                <a
+                  key={method.label}
+                  href={method.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 rounded-2xl bg-white/5 p-4 transition hover:bg-white/10"
+                >
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-slate-300">
+                    {method.icon === "email" && <IconArrowRight className="h-4 w-4" />}
+                    {method.icon === "whatsapp" && <IconWhatsApp className="h-4 w-4" />}
+                    {method.icon === "linkedin" && <IconLinkedIn className="h-4 w-4" />}
+                    {method.icon === "github" && <IconGithub className="h-4 w-4" />}
+                    {method.icon === "globe" && <IconExternal className="h-4 w-4" />}
+                    {method.icon === "map" && <IconMap className="h-4 w-4" />}
+                  </div>
+                  <div>
+                    <p className="text-xs font-black uppercase tracking-[0.2em] text-slate-400">{method.label}</p>
+                    <p className="mt-1 font-medium">{method.value}</p>
+                  </div>
+                </a>
+              ) : (
+                <div key={method.label} className="flex items-center gap-4 rounded-2xl bg-white/5 p-4">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-slate-300">
+                    {method.icon === "map" && <IconMap className="h-4 w-4" />}
+                  </div>
+                  <div>
+                    <p className="text-xs font-black uppercase tracking-[0.2em] text-slate-400">{method.label}</p>
+                    <p className="mt-1 font-medium">{method.value}</p>
+                  </div>
+                </div>
+              )
+            ))}
+          </div>
+
+          <div className="mt-8 flex flex-col gap-3">
+            {actionButtons.map((button) => (
+              <a
+                key={button.label}
+                href={button.href}
+                target={button.href.startsWith("http") ? "_blank" : undefined}
+                rel={button.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                className="flex min-h-12 items-center justify-center rounded-2xl bg-white px-6 py-3 text-sm font-bold text-slate-950 transition hover:-translate-y-0.5 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+              >
+                {button.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
 export default function AreivanLandingPage() {
   const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedContact, setSelectedContact] = useState(false);
   const shouldReduceMotion = useReducedMotion();
   const heroMotion = shouldReduceMotion ? {} : { initial: { opacity: 0, y: 24 }, animate: { opacity: 1, y: 0 } };
   const panelMotion = shouldReduceMotion ? {} : { initial: { opacity: 0, scale: 0.96, y: 24 }, animate: { opacity: 1, scale: 1, y: 0 } };
@@ -667,10 +803,14 @@ export default function AreivanLandingPage() {
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-              <ButtonLink href="mailto:contacto@areivan.com" variant="inverted">
+              <button
+                type="button"
+                onClick={() => setSelectedContact(true)}
+                className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-white px-6 py-3 text-sm font-bold text-slate-950 shadow-lg shadow-black/20 transition hover:-translate-y-0.5 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+              >
                 Contact me
                 <IconArrowRight className="ml-2 h-4 w-4" />
-              </ButtonLink>
+              </button>
               <ButtonLink href="https://github.com/AREIVAN" variant="ghostDark">
                 <IconGithub className="mr-2 h-4 w-4" />
                 GitHub
@@ -691,6 +831,7 @@ export default function AreivanLandingPage() {
 
       <AnimatePresence>
         {selectedProject ? <ProjectPreviewModal project={selectedProject} onClose={() => setSelectedProject(null)} /> : null}
+        {selectedContact ? <ContactModal onClose={() => setSelectedContact(false)} /> : null}
       </AnimatePresence>
     </main>
   );
