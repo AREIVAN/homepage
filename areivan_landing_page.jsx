@@ -204,6 +204,68 @@ const roadmap = [
   { label: "Later", text: "Bring more robotics and automation tooling into clean web interfaces." },
 ];
 
+const roboticsProjects = [
+  {
+    name: "Autonomous Farm Robot",
+    status: "Research / In development",
+    description: "Modular agricultural robot platform for perception, monitoring and future field tasks.",
+    tags: ["Robotics", "Agriculture", "Perception", "Autonomous Systems"],
+    build: [
+      "Problem: field tasks need modular and adaptable robotic platforms.",
+      "Hardware: mobile robot base, sensors, camera/LiDAR placeholder, battery system.",
+      "Software: perception, navigation planning, modular task logic.",
+      "Current state: research and system architecture.",
+      "Next steps: prototype base, sensor integration and field testing.",
+    ],
+  },
+  {
+    name: "Mini Sumo Robot",
+    status: "Hardware project",
+    description: "Compact competition robot using ESP32, sensors, motor drivers and custom PCB design.",
+    tags: ["ESP32", "PCB", "Sensors", "Competition"],
+    build: [
+      "Problem: fast autonomous decision-making in a limited competition arena.",
+      "Hardware: ESP32, motor drivers, DC motors, edge sensors, opponent sensors.",
+      "Software: sensor reading, attack logic, PWM motor control.",
+      "Design: custom PCB planned/designed in KiCad.",
+      "Next steps: tuning, chassis optimization and testing.",
+    ],
+  },
+  {
+    name: "Industrial Sensor Module",
+    status: "Concept / In development",
+    description: "Sensor system for monitoring motors with temperature, vibration, current and location data.",
+    tags: ["Sensors", "Maintenance", "Industry", "IoT"],
+    build: [
+      "Problem: industrial motors need low-cost condition monitoring.",
+      "Hardware: temperature sensor, vibration sensor, current sensor, ESP32.",
+      "Software: data acquisition, dashboard connection, alerts.",
+      "Use case: predictive maintenance for industrial environments.",
+      "Next steps: prototype sensor node and connect to dashboard.",
+    ],
+  },
+  {
+    name: "ESP32 Control Boards",
+    status: "Hardware experiments",
+    description: "Embedded control boards for robotics, actuators, sensors and automation workflows.",
+    tags: ["ESP32", "KiCad", "Automation", "Embedded"],
+    build: [
+      "Problem: robotics projects need reusable control electronics.",
+      "Hardware: ESP32-based control boards, motor outputs, sensor inputs and power stages.",
+      "Software: firmware for control, communication and testing.",
+      "Design: schematic and PCB layout in KiCad.",
+      "Next steps: manufacturing, soldering and validation.",
+    ],
+  },
+];
+
+const roboticsBuildSteps = [
+  "Define the problem",
+  "Design the electronics",
+  "Build the software logic",
+  "Test, iterate and document",
+];
+
 export const areivanLandingMetadata = {
   title: "AREIVAN | Software for learning, mobility and robotics",
   description: "AREIVAN is a personal product lab for web apps, robotics tools, learning systems and industrial dashboards.",
@@ -285,6 +347,29 @@ function ButtonLink({ href = "#", variant = "primary", children }) {
 
 function ProjectIcon({ icon: Icon, className = "" }) {
   return <Icon className={className} />;
+}
+
+function SiteNav() {
+  return (
+    <nav className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-8">
+      <a href="/" className="group flex min-h-11 items-center gap-3 rounded-2xl transition duration-300 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-4 motion-reduce:transition-none motion-reduce:hover:scale-100" aria-label="AREIVAN home">
+        <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-950 text-lg font-black tracking-tight text-white shadow-lg shadow-slate-900/20 transition duration-300 group-hover:-rotate-3 group-hover:shadow-sky-500/20 motion-reduce:transition-none motion-reduce:group-hover:rotate-0">
+          A
+        </div>
+        <div>
+          <p className="text-sm font-black tracking-[0.24em] text-slate-950">AREIVAN</p>
+          <p className="text-xs text-slate-500">Build. Automate. Learn.</p>
+        </div>
+      </a>
+
+      <div className="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
+        <a href="/#projects" className="rounded-lg transition duration-300 hover:-translate-y-0.5 hover:text-slate-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-4 motion-reduce:transition-none motion-reduce:hover:translate-y-0">Projects</a>
+        <a href="/#capabilities" className="rounded-lg transition duration-300 hover:-translate-y-0.5 hover:text-slate-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-4 motion-reduce:transition-none motion-reduce:hover:translate-y-0">Capabilities</a>
+        <a href="/robotics" className="rounded-lg transition duration-300 hover:-translate-y-0.5 hover:text-slate-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-4 motion-reduce:transition-none motion-reduce:hover:translate-y-0">Robotics</a>
+        <a href="/#contact" className="rounded-lg transition duration-300 hover:-translate-y-0.5 hover:text-slate-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-4 motion-reduce:transition-none motion-reduce:hover:translate-y-0">Contact</a>
+      </div>
+    </nav>
+  );
 }
 
 function ProjectPreviewModal({ project, onClose }) {
@@ -597,6 +682,159 @@ function ContactModal({ onClose }) {
   );
 }
 
+export function RoboticsPage() {
+  const [selectedContact, setSelectedContact] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
+  const heroMotion = shouldReduceMotion ? {} : { initial: { opacity: 0, y: 24 }, animate: { opacity: 1, y: 0 } };
+
+  return (
+    <main className="min-h-screen overflow-hidden bg-white text-slate-950">
+      <section className="relative border-b border-slate-200 bg-[radial-gradient(circle_at_top_right,_rgba(14,165,233,0.2),_transparent_36%),linear-gradient(to_bottom,_#ffffff,_#f8fafc)]">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(15,23,42,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.06)_1px,transparent_1px)] bg-[size:44px_44px] [mask-image:linear-gradient(to_bottom,black,transparent_75%)]" />
+        <SiteNav />
+
+        <div className="relative z-10 mx-auto max-w-7xl px-6 pb-20 pt-10 lg:px-8 lg:pb-28 lg:pt-20">
+          <motion.div
+            {...heroMotion}
+            transition={{ duration: 0.7, ease: [0.2, 0, 0, 1] }}
+            className="max-w-4xl"
+          >
+            <p className="text-sm font-black uppercase tracking-[0.28em] text-sky-600">Robotics by Areivan</p>
+            <h1 className="mt-5 text-5xl font-black leading-[0.98] tracking-tight text-slate-950 md:text-7xl">
+              Robotics projects, embedded systems and automation experiments.
+            </h1>
+            <p className="mt-7 max-w-3xl text-lg leading-8 text-slate-600 md:text-xl">
+              A dedicated space for documenting robots, control boards, embedded systems and automation projects — from idea to hardware, software and testing.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-24" aria-labelledby="robotics-projects-heading">
+        <div className="mb-10 max-w-3xl">
+          <p className="text-sm font-black uppercase tracking-[0.28em] text-sky-600">Project lab</p>
+          <h2 id="robotics-projects-heading" className="mt-4 text-4xl font-black tracking-tight text-slate-950 md:text-5xl">Builds documented from problem to test bench.</h2>
+        </div>
+
+        <div className="grid gap-6">
+          {roboticsProjects.map((project, index) => {
+            const buildId = project.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+
+            return (
+              <article key={project.name} id={buildId} className="group overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-slate-900/10 motion-reduce:transition-none motion-reduce:hover:translate-y-0">
+                <div className="grid gap-0 lg:grid-cols-[0.95fr_1.05fr]">
+                  <div className="p-6 md:p-8">
+                    <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-sky-50 text-sky-600 transition duration-300 group-hover:scale-110 group-hover:bg-sky-100 motion-reduce:transition-none motion-reduce:group-hover:scale-100">
+                      <IconCpu className="h-6 w-6" />
+                    </div>
+                    <div className="inline-flex rounded-full bg-sky-50 px-3 py-1 text-xs font-black uppercase tracking-[0.2em] text-sky-700">
+                      {project.status}
+                    </div>
+                    <h3 className="mt-5 text-3xl font-black tracking-tight text-slate-950">{project.name}</h3>
+                    <p className="mt-4 text-lg leading-8 text-slate-600">{project.description}</p>
+                    <div className="mt-6 flex flex-wrap gap-2">
+                      {project.tags.map((tag) => (
+                        <span key={tag} className="rounded-full border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-semibold text-slate-700">{tag}</span>
+                      ))}
+                    </div>
+                    <a href={`#${buildId}-process`} className="mt-8 inline-flex min-h-12 items-center justify-center rounded-2xl bg-slate-950 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-slate-900/15 transition duration-200 hover:-translate-y-0.5 hover:bg-slate-800 hover:shadow-xl hover:shadow-sky-500/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2 motion-reduce:transition-none motion-reduce:hover:translate-y-0">
+                      View build process
+                      <IconArrowRight className="ml-2 h-4 w-4" />
+                    </a>
+                  </div>
+
+                  <div id={`${buildId}-process`} className="bg-slate-950 p-6 text-white md:p-8">
+                    <p className="text-sm font-black uppercase tracking-[0.24em] text-sky-300">Build process · 0{index + 1}</p>
+                    <div className="mt-6 space-y-4">
+                      {project.build.map((item) => {
+                        const [label, detail] = item.split(": ");
+
+                        return (
+                          <div key={item} className="rounded-2xl border border-white/10 bg-white/[0.06] p-4 transition duration-300 hover:border-sky-300/40 hover:bg-white/[0.09]">
+                            <p className="text-sm font-black text-sky-200">{label}</p>
+                            <p className="mt-1 leading-7 text-slate-300">{detail}</p>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className="border-y border-slate-200 bg-slate-50" aria-labelledby="robotics-process-heading">
+        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-24">
+          <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
+            <div>
+              <p className="text-sm font-black uppercase tracking-[0.28em] text-sky-600">How I build robotics projects</p>
+              <h2 id="robotics-process-heading" className="mt-4 text-4xl font-black tracking-tight text-slate-950 md:text-5xl">Robotics needs process, not magic.</h2>
+              <p className="mt-5 text-lg leading-8 text-slate-600">
+                The work moves from a real-world constraint to electronics, firmware, integration and testing. That discipline matters — hardware punishes shortcuts FAST.
+              </p>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {roboticsBuildSteps.map((step, index) => (
+                <article key={step} className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-900/10 motion-reduce:transition-none motion-reduce:hover:translate-y-0">
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-50 text-sm font-black text-sky-700">
+                    0{index + 1}
+                  </div>
+                  <h3 className="text-lg font-black text-slate-950">{step}</h3>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
+        <div className="overflow-hidden rounded-[2rem] bg-slate-950 p-8 text-white shadow-2xl shadow-slate-900/20 transition duration-500 hover:-translate-y-1 hover:shadow-sky-500/10 motion-reduce:transition-none motion-reduce:hover:translate-y-0 md:p-12">
+          <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
+            <div>
+              <p className="text-sm font-black uppercase tracking-[0.28em] text-sky-300">AREIVAN robotics lab</p>
+              <h2 className="mt-4 max-w-3xl text-4xl font-black tracking-tight md:text-5xl">Interested in robotics or automation?</h2>
+              <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
+                I’m building robotics and industrial software projects around real-world workflows.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
+              <button
+                type="button"
+                onClick={() => setSelectedContact(true)}
+                className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-white px-6 py-3 text-sm font-bold text-slate-950 shadow-lg shadow-black/20 transition hover:-translate-y-0.5 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+              >
+                Contact me
+                <IconArrowRight className="ml-2 h-4 w-4" />
+              </button>
+              <ButtonLink href="https://github.com/AREIVAN" variant="ghostDark">
+                <IconGithub className="mr-2 h-4 w-4" />
+                View GitHub
+              </ButtonLink>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer className="border-t border-slate-200 bg-white px-6 py-10 lg:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 text-sm text-slate-600 md:flex-row md:items-center md:justify-between">
+          <div>
+            <p className="font-black tracking-tight text-slate-950">Built by Areivan</p>
+            <p className="mt-1">Robotics engineering student</p>
+          </div>
+          <p className="max-w-xl leading-6 md:text-right">Focused on automation, industrial systems and software products.</p>
+        </div>
+      </footer>
+
+      <AnimatePresence>
+        {selectedContact ? <ContactModal onClose={() => setSelectedContact(false)} /> : null}
+      </AnimatePresence>
+    </main>
+  );
+}
+
 export default function AreivanLandingPage() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedContact, setSelectedContact] = useState(false);
@@ -609,23 +847,7 @@ export default function AreivanLandingPage() {
       <section className="relative border-b border-slate-200 bg-[radial-gradient(circle_at_top_right,_rgba(14,165,233,0.18),_transparent_36%),linear-gradient(to_bottom,_#ffffff,_#f8fafc)]">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(15,23,42,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.06)_1px,transparent_1px)] bg-[size:44px_44px] [mask-image:linear-gradient(to_bottom,black,transparent_75%)]" />
 
-        <nav className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-8">
-          <a href="#" className="group flex min-h-11 items-center gap-3 rounded-2xl transition duration-300 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-4 motion-reduce:transition-none motion-reduce:hover:scale-100" aria-label="AREIVAN home">
-            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-950 text-lg font-black tracking-tight text-white shadow-lg shadow-slate-900/20 transition duration-300 group-hover:-rotate-3 group-hover:shadow-sky-500/20 motion-reduce:transition-none motion-reduce:group-hover:rotate-0">
-              A
-            </div>
-            <div>
-              <p className="text-sm font-black tracking-[0.24em] text-slate-950">AREIVAN</p>
-              <p className="text-xs text-slate-500">Build. Automate. Learn.</p>
-            </div>
-          </a>
-
-          <div className="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
-            <a href="#projects" className="rounded-lg transition duration-300 hover:-translate-y-0.5 hover:text-slate-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-4 motion-reduce:transition-none motion-reduce:hover:translate-y-0">Projects</a>
-            <a href="#capabilities" className="rounded-lg transition duration-300 hover:-translate-y-0.5 hover:text-slate-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-4 motion-reduce:transition-none motion-reduce:hover:translate-y-0">Capabilities</a>
-            <a href="#contact" className="rounded-lg transition duration-300 hover:-translate-y-0.5 hover:text-slate-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-4 motion-reduce:transition-none motion-reduce:hover:translate-y-0">Contact</a>
-          </div>
-        </nav>
+        <SiteNav />
 
         <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-6 pb-24 pt-10 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:pb-32 lg:pt-20">
           <motion.div
