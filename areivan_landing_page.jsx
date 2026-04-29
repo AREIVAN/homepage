@@ -150,6 +150,15 @@ const projects = [
     tags: ["Robotics", "Events", "Dashboard"],
     mockup: "Robot database · Events · Brackets",
   },
+  {
+    name: "Paro Cero",
+    status: "Industrial platform",
+    description: "Industrial maintenance platform for machine checklists, reports, downtime control and operational workflows.",
+    icon: IconCpu,
+    href: "https://paro-cero-dev.netlify.app/",
+    tags: ["Maintenance", "Industry", "SaaS"],
+    mockup: "Maintenance workflows · Checklists · Downtime control",
+  },
 ];
 
 const capabilities = [
@@ -284,10 +293,11 @@ export function validateAreivanLandingData() {
     TypeLearn: { status: "Live", href: "https://typelearn.areivan.com" },
     "Apex Ride": { status: "In development", href: "https://apexride.areivan.com" },
     "Torneos Dashboard": { status: "Prototype", href: "https://torneos.areivan.com" },
+    "Paro Cero": { status: "Industrial platform", href: "https://paro-cero-dev.netlify.app/" },
   };
 
-  if (projects.length !== 3) {
-    errors.push("Expected exactly 3 projects: Apex Ride, TypeLearn and Torneos Dashboard.");
+  if (projects.length !== 4) {
+    errors.push("Expected exactly 4 projects: Apex Ride, TypeLearn, Torneos Dashboard and Paro Cero.");
   }
 
   for (const [name, expected] of Object.entries(requiredProjects)) {
