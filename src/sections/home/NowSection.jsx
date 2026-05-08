@@ -1,4 +1,4 @@
-import { activeWork } from "../../data/landing-data.jsx";
+import { activeWork, pageCopy } from "../../data/landing-data.jsx";
 
 export default function NowSection() {
   return (
@@ -9,17 +9,16 @@ export default function NowSection() {
       <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
         <div>
           <p className="text-sm font-black uppercase tracking-[0.28em] text-sky-600">
-            What I'm building now
+            {pageCopy.now.eyebrow}
           </p>
           <h2
             id="now-heading"
             className="mt-4 text-4xl font-black tracking-tight text-slate-950 md:text-5xl"
           >
-            Useful products at the edge of software and machines.
+            {pageCopy.now.title}
           </h2>
           <p className="mt-5 text-lg leading-8 text-slate-600">
-            AREIVAN exists to turn practical problems in learning, mobility and
-            robotics into products that feel fast, clear and ready to grow.
+            {pageCopy.now.description}
           </p>
         </div>
 

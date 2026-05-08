@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import SiteNav from "../../components/common/SiteNav.jsx";
+import { pageCopy } from "../../data/landing-data.jsx";
 
 export default function RoboticsHeroSection({ heroMotion }) {
   return (
@@ -14,15 +15,13 @@ export default function RoboticsHeroSection({ heroMotion }) {
           className="max-w-4xl"
         >
           <p className="text-sm font-black uppercase tracking-[0.28em] text-sky-600">
-            Robotics by Areivan
+            {pageCopy.roboticsHero.eyebrow}
           </p>
           <h1 className="mt-5 text-5xl font-black leading-[0.98] tracking-tight text-slate-950 md:text-7xl">
-            Robotics projects, embedded systems and automation experiments.
+            {pageCopy.roboticsHero.title}
           </h1>
           <p className="mt-7 max-w-3xl text-lg leading-8 text-slate-600 md:text-xl">
-            A dedicated space for documenting robots, control boards, embedded
-            systems and automation projects — from idea to hardware, software
-            and testing.
+            {pageCopy.roboticsHero.description}
           </p>
         </motion.div>
       </div>

@@ -1,45 +1,27 @@
 import { useEffect, useRef } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { IconArrowRight, IconExternal, IconGithub, IconLinkedIn, IconMap, IconWhatsApp } from "../icons/landing-icons.jsx";
+import {
+  IconArrowRight,
+  IconExternal,
+  IconGithub,
+  IconLinkedIn,
+  IconMap,
+  IconWhatsApp,
+} from "../icons/landing-icons.jsx";
+import {
+  contactActions,
+  contactMethods,
+  contactModalCopy,
+} from "../../data/contact-data.js";
+
+function isExternalUrl(href) {
+  return href.startsWith("http");
+}
 
 export default function ContactModal({ onClose }) {
   const dialogRef = useRef(null);
   const closeButtonRef = useRef(null);
   const shouldReduceMotion = useReducedMotion();
-
-  const contactMethods = [
-    {
-      label: "Email",
-      value: "ivanangeles0311@icloud.com",
-      icon: "email",
-      href: "mailto:ivanangeles0311@icloud.com",
-    },
-    {
-      label: "WhatsApp",
-      value: "+52 55 3782 8350",
-      icon: "whatsapp",
-      href: "https://wa.me/525537828350",
-    },
-    {
-      label: "LinkedIn",
-      value: "areivan",
-      icon: "linkedin",
-      href: "https://www.linkedin.com/in/areivan/",
-    },
-    {
-      label: "GitHub",
-      value: "AREIVAN",
-      icon: "github",
-      href: "https://github.com/AREIVAN",
-    },
-    {
-      label: "Website",
-      value: "areivan.com",
-      icon: "globe",
-      href: "https://www.areivan.com",
-    },
-    { label: "Location", value: "Mexico", icon: "map", href: null },
-  ];
 
   useEffect(() => {
     if (!onClose) return undefined;
@@ -85,12 +67,6 @@ export default function ContactModal({ onClose }) {
     };
   }, [onClose]);
 
-  const actionButtons = [
-    { label: "Send email", href: "mailto:ivanangeles0311@icloud.com" },
-    { label: "WhatsApp", href: "https://wa.me/525537828350" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/areivan/" },
-  ];
-
   return (
     <motion.div
       className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-slate-950/70 px-4 py-6 backdrop-blur-md sm:items-center"
@@ -108,6 +84,7 @@ export default function ContactModal({ onClose }) {
         role="dialog"
         aria-modal="true"
         aria-labelledby="contact-title"
+        aria-describedby="contact-description"
         initial={
           shouldReduceMotion ? false : { opacity: 0, y: 18, scale: 0.97 }
         }
@@ -127,7 +104,7 @@ export default function ContactModal({ onClose }) {
           type="button"
           onClick={onClose}
           className="sticky left-full top-5 z-20 mr-5 mt-5 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-xl font-bold text-white transition hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
-          aria-label="Close contact modal"
+          aria-label={contactModalCopy.closeLabel}
         >
           ×
         </button>
@@ -138,11 +115,13 @@ export default function ContactModal({ onClose }) {
           </div>
 
           <h2 id="contact-title" className="text-3xl font-black tracking-tight">
-            Contact Areivan
+            {contactModalCopy.title}
           </h2>
-          <p className="mt-4 text-lg leading-7 text-slate-300">
-            Let's connect around software, robotics, automation or product
-            ideas.
+          <p
+            id="contact-description"
+            className="mt-4 text-lg leading-7 text-slate-300"
+          >
+            {contactModalCopy.description}
           </p>
 
           <div className="mt-8 space-y-4">
@@ -151,8 +130,12 @@ export default function ContactModal({ onClose }) {
                 <a
                   key={method.label}
                   href={method.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target={isExternalUrl(method.href) ? "_blank" : undefined}
+                  rel={
+                    isExternalUrl(method.href)
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
                   className="flex items-center gap-4 rounded-2xl bg-white/5 p-4 transition hover:bg-white/10"
                 >
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-slate-300">
@@ -200,13 +183,13 @@ export default function ContactModal({ onClose }) {
           </div>
 
           <div className="mt-8 flex flex-col gap-3">
-            {actionButtons.map((button) => (
+            {contactActions.map((button) => (
               <a
                 key={button.label}
                 href={button.href}
-                target={button.href.startsWith("http") ? "_blank" : undefined}
+                target={isExternalUrl(button.href) ? "_blank" : undefined}
                 rel={
-                  button.href.startsWith("http")
+                  isExternalUrl(button.href)
                     ? "noopener noreferrer"
                     : undefined
                 }

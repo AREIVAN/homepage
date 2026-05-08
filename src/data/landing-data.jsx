@@ -1,4 +1,82 @@
-import { IconBike, IconBrain, IconChart, IconCpu, IconMap, IconSpark, IconTrophy } from "../components/icons/landing-icons.jsx";
+import {
+  IconBike,
+  IconBrain,
+  IconChart,
+  IconCpu,
+  IconMap,
+  IconSpark,
+  IconTrophy,
+} from "../components/icons/landing-icons.jsx";
+
+
+export const pageCopy = {
+  homeHero: {
+    title: "I build software for learning, mobility and robotics.",
+    description:
+      "AREIVAN is my personal product lab where I build web apps, robotics tools, learning systems and industrial dashboards.",
+    primaryCta: "View projects",
+    secondaryCta: "GitHub profile",
+    commandEyebrow: "AREIVAN OS",
+    commandTitle: "Project Command Center",
+    commandStatus: "Live",
+  },
+  now: {
+    eyebrow: "What I'm building now",
+    title: "Useful products at the edge of software and machines.",
+    description:
+      "AREIVAN exists to turn practical problems in learning, mobility and robotics into products that feel fast, clear and ready to grow.",
+  },
+  approach: {
+    eyebrow: "How I build products",
+    title: "Small scope, strong fundamentals, polished execution.",
+    stackEyebrow: "Tech stack",
+    stackTitle: "Tools chosen for speed and clarity.",
+    roadmapEyebrow: "Roadmap",
+  },
+  capabilities: {
+    eyebrow: "Capabilities",
+    title: "Built around real technical problems.",
+    description:
+      "AREIVAN connects product design, frontend engineering, robotics logic, dashboards and AI-assisted workflows.",
+  },
+  contact: {
+    eyebrow: "AREIVAN",
+    title: "Built by Areivan. Designed for products that actually work.",
+    description:
+      "Explore the ecosystem, review the code, or connect to collaborate on software, robotics and industrial tools.",
+    githubLabel: "GitHub",
+  },
+  roboticsHero: {
+    eyebrow: "Robotics by Areivan",
+    title: "Robotics projects, embedded systems and automation experiments.",
+    description:
+      "A dedicated space for documenting robots, control boards, embedded systems and automation projects — from idea to hardware, software and testing.",
+  },
+  roboticsProjects: {
+    eyebrow: "Project lab",
+    title: "Builds documented from problem to test bench.",
+    processCta: "View build process",
+    processLabel: "Build process",
+  },
+  roboticsProcess: {
+    eyebrow: "How I build robotics projects",
+    title: "Robotics needs process, not magic.",
+    description:
+      "The work moves from a real-world constraint to electronics, firmware, integration and testing. That discipline matters — hardware punishes shortcuts FAST.",
+  },
+  roboticsContact: {
+    eyebrow: "AREIVAN robotics lab",
+    title: "Interested in robotics or automation?",
+    description:
+      "I’m building robotics and industrial software projects around real-world workflows.",
+    githubLabel: "View GitHub",
+  },
+  footer: {
+    brand: "Built by Areivan",
+    subtitle: "Robotics engineering student",
+    description: "Focused on automation, industrial systems and software products.",
+  },
+};
 
 export const projects = [
   {

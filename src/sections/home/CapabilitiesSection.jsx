@@ -1,5 +1,5 @@
 import ProjectIcon from "../../components/common/ProjectIcon.jsx";
-import { capabilities } from "../../data/landing-data.jsx";
+import { capabilities, pageCopy } from "../../data/landing-data.jsx";
 
 export default function CapabilitiesSection() {
   return (
@@ -8,14 +8,13 @@ export default function CapabilitiesSection() {
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.28em] text-sky-600">
-              Capabilities
+              {pageCopy.capabilities.eyebrow}
             </p>
             <h2 className="mt-4 text-4xl font-black tracking-tight text-slate-950 md:text-5xl">
-              Built around real technical problems.
+              {pageCopy.capabilities.title}
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-600">
-              AREIVAN connects product design, frontend engineering, robotics
-              logic, dashboards and AI-assisted workflows.
+              {pageCopy.capabilities.description}
             </p>
           </div>
 

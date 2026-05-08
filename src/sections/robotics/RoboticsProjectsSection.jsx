@@ -1,5 +1,5 @@
 import { IconArrowRight, IconCpu } from "../../components/icons/landing-icons.jsx";
-import { roboticsProjects } from "../../data/landing-data.jsx";
+import { pageCopy, roboticsProjects } from "../../data/landing-data.jsx";
 
 function buildAnchorId(name) {
   return name
@@ -16,13 +16,13 @@ export default function RoboticsProjectsSection() {
     >
       <div className="mb-10 max-w-3xl">
         <p className="text-sm font-black uppercase tracking-[0.28em] text-sky-600">
-          Project lab
+          {pageCopy.roboticsProjects.eyebrow}
         </p>
         <h2
           id="robotics-projects-heading"
           className="mt-4 text-4xl font-black tracking-tight text-slate-950 md:text-5xl"
         >
-          Builds documented from problem to test bench.
+          {pageCopy.roboticsProjects.title}
         </h2>
       </div>
 
@@ -64,14 +64,14 @@ export default function RoboticsProjectsSection() {
                     href={`#${buildId}-process`}
                     className="mt-8 inline-flex min-h-12 items-center justify-center rounded-2xl bg-slate-950 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-slate-900/15 transition duration-200 hover:-translate-y-0.5 hover:bg-slate-800 hover:shadow-xl hover:shadow-sky-500/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
                   >
-                    View build process
+                    {pageCopy.roboticsProjects.processCta}
                     <IconArrowRight className="ml-2 h-4 w-4" />
                   </a>
                 </div>
 
                 <div id={`${buildId}-process`} className="bg-slate-950 p-6 text-white md:p-8">
                   <p className="text-sm font-black uppercase tracking-[0.24em] text-sky-300">
-                    Build process · 0{index + 1}
+                    {pageCopy.roboticsProjects.processLabel} · 0{index + 1}
                   </p>
                   <div className="mt-6 space-y-4">
                     {project.build.map((item) => {

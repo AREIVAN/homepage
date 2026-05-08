@@ -1,4 +1,4 @@
-import { approach, roadmap, techStack } from "../../data/landing-data.jsx";
+import { approach, pageCopy, roadmap, techStack } from "../../data/landing-data.jsx";
 
 export default function ApproachSection() {
   return (
@@ -9,13 +9,13 @@ export default function ApproachSection() {
       <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
         <div>
           <p className="text-sm font-black uppercase tracking-[0.28em] text-sky-600">
-            How I build products
+            {pageCopy.approach.eyebrow}
           </p>
           <h2
             id="approach-heading"
             className="mt-4 text-4xl font-black tracking-tight text-slate-950 md:text-5xl"
           >
-            Small scope, strong fundamentals, polished execution.
+            {pageCopy.approach.title}
           </h2>
           <div className="mt-8 grid gap-4">
             {approach.map((item) => (
@@ -37,13 +37,13 @@ export default function ApproachSection() {
           aria-labelledby="stack-heading"
         >
           <p className="text-sm font-black uppercase tracking-[0.28em] text-sky-600">
-            Tech stack
+            {pageCopy.approach.stackEyebrow}
           </p>
           <h3
             id="stack-heading"
             className="mt-4 text-3xl font-black tracking-tight text-slate-950"
           >
-            Tools chosen for speed and clarity.
+            {pageCopy.approach.stackTitle}
           </h3>
           <div className="mt-6 flex flex-wrap gap-2">
             {techStack.map((item) => (
@@ -57,7 +57,7 @@ export default function ApproachSection() {
           </div>
           <div className="mt-8 rounded-[1.5rem] bg-slate-950 p-5 text-white">
             <p className="text-sm font-black uppercase tracking-[0.24em] text-sky-300">
-              Roadmap
+              {pageCopy.approach.roadmapEyebrow}
             </p>
             <div className="mt-5 space-y-4">
               {roadmap.map((item) => (

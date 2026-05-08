@@ -1,4 +1,4 @@
-import { roboticsBuildSteps } from "../../data/landing-data.jsx";
+import { pageCopy, roboticsBuildSteps } from "../../data/landing-data.jsx";
 
 export default function RoboticsProcessSection() {
   return (
@@ -10,18 +10,16 @@ export default function RoboticsProcessSection() {
         <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.28em] text-sky-600">
-              How I build robotics projects
+              {pageCopy.roboticsProcess.eyebrow}
             </p>
             <h2
               id="robotics-process-heading"
               className="mt-4 text-4xl font-black tracking-tight text-slate-950 md:text-5xl"
             >
-              Robotics needs process, not magic.
+              {pageCopy.roboticsProcess.title}
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-600">
-              The work moves from a real-world constraint to electronics,
-              firmware, integration and testing. That discipline matters —
-              hardware punishes shortcuts FAST.
+              {pageCopy.roboticsProcess.description}
             </p>
           </div>
 

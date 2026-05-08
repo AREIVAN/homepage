@@ -3,7 +3,7 @@ import { IconArrowRight, IconGithub } from "../../components/icons/landing-icons
 import ButtonLink from "../../components/common/ButtonLink.jsx";
 import ProjectIcon from "../../components/common/ProjectIcon.jsx";
 import SiteNav from "../../components/common/SiteNav.jsx";
-import { projects } from "../../data/landing-data.jsx";
+import { pageCopy, projects } from "../../data/landing-data.jsx";
 
 export default function HomeHeroSection({
   heroMotion,
@@ -23,22 +23,21 @@ export default function HomeHeroSection({
           transition={{ duration: 0.7, ease: [0.2, 0, 0, 1] }}
         >
           <h1 className="max-w-4xl text-5xl font-black leading-[0.95] tracking-tight text-slate-950 md:text-7xl lg:text-8xl">
-            I build software for learning, mobility and robotics.
+            {pageCopy.homeHero.title}
           </h1>
 
           <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-600 md:text-xl">
-            AREIVAN is my personal product lab where I build web apps,
-            robotics tools, learning systems and industrial dashboards.
+            {pageCopy.homeHero.description}
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <ButtonLink href="#projects">
-              View projects
+              {pageCopy.homeHero.primaryCta}
               <IconArrowRight className="ml-2 h-4 w-4" />
             </ButtonLink>
             <ButtonLink href="https://github.com/AREIVAN" variant="secondary">
               <IconGithub className="mr-2 h-4 w-4" />
-              GitHub profile
+              {pageCopy.homeHero.secondaryCta}
             </ButtonLink>
           </div>
         </motion.div>
@@ -59,14 +58,14 @@ export default function HomeHeroSection({
               <div className="mb-6 flex items-center justify-between">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.28em] text-sky-300">
-                    AREIVAN OS
+                    {pageCopy.homeHero.commandEyebrow}
                   </p>
                   <p className="mt-1 text-lg font-bold">
-                    Project Command Center
+                    {pageCopy.homeHero.commandTitle}
                   </p>
                 </div>
                 <div className="rounded-full bg-white/10 px-3 py-1 text-xs text-slate-300">
-                  Live
+                  {pageCopy.homeHero.commandStatus}
                 </div>
               </div>
 

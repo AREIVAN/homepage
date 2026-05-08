@@ -1,14 +1,7 @@
-import AreivanLandingPage, { RoboticsPage } from "../areivan_landing_page.jsx";
-import SecurityPage from "./SecurityPage.jsx";
+import { resolveRoute } from "./routes.jsx";
 
 export default function App() {
-  if (window.location.pathname === "/security") {
-    return <SecurityPage />;
-  }
+  const Page = resolveRoute();
 
-  if (window.location.pathname === "/robotics") {
-    return <RoboticsPage />;
-  }
-
-  return <AreivanLandingPage />;
+  return <Page />;
 }

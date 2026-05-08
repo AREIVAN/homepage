@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { AnimatePresence, useReducedMotion } from "framer-motion";
-import ContactModal from "../components/modals/ContactModal.jsx";
-import RoboticsHeroSection from "../sections/robotics/RoboticsHeroSection.jsx";
-import RoboticsProcessSection from "../sections/robotics/RoboticsProcessSection.jsx";
-import RoboticsProjectsSection from "../sections/robotics/RoboticsProjectsSection.jsx";
-import ContactCtaSection from "../sections/shared/ContactCtaSection.jsx";
-import SiteFooter from "../sections/shared/SiteFooter.jsx";
+import { ContactModal } from "../components/modals/index.js";
+import {
+  RoboticsHeroSection,
+  RoboticsProcessSection,
+  RoboticsProjectsSection,
+} from "../sections/robotics/index.js";
+import { pageCopy } from "../data/landing-data.jsx";
+import { ContactCtaSection, SiteFooter } from "../sections/shared/index.js";
 
 export default function RoboticsPage() {
   const [selectedContact, setSelectedContact] = useState(false);
@@ -20,13 +22,13 @@ export default function RoboticsPage() {
       <RoboticsProjectsSection />
       <RoboticsProcessSection />
       <ContactCtaSection
-        eyebrow="AREIVAN robotics lab"
-        title="Interested in robotics or automation?"
-        description="I’m building robotics and industrial software projects around real-world workflows."
-        githubLabel="View GitHub"
+        eyebrow={pageCopy.roboticsContact.eyebrow}
+        title={pageCopy.roboticsContact.title}
+        description={pageCopy.roboticsContact.description}
+        githubLabel={pageCopy.roboticsContact.githubLabel}
         onContactClick={() => setSelectedContact(true)}
       />
-      <SiteFooter />
+      <SiteFooter darkGradient={false} />
 
       <AnimatePresence>
         {selectedContact ? (

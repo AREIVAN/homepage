@@ -1,11 +1,12 @@
 import { IconArrowRight, IconGithub } from "../../components/icons/landing-icons.jsx";
+import { pageCopy } from "../../data/landing-data.jsx";
 import ButtonLink from "../../components/common/ButtonLink.jsx";
 
 export default function ContactCtaSection({
-  eyebrow = "AREIVAN",
-  title = "Built by Areivan. Designed for products that actually work.",
-  description = "Explore the ecosystem, review the code, or connect to collaborate on software, robotics and industrial tools.",
-  githubLabel = "GitHub",
+  eyebrow = pageCopy.contact.eyebrow,
+  title = pageCopy.contact.title,
+  description = pageCopy.contact.description,
+  githubLabel = pageCopy.contact.githubLabel,
   onContactClick,
 }) {
   return (

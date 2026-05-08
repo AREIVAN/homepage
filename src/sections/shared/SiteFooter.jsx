@@ -1,3 +1,5 @@
+import { pageCopy } from "../../data/landing-data.jsx";
+
 export default function SiteFooter({ darkGradient = true }) {
   return (
     <footer
@@ -16,12 +18,12 @@ export default function SiteFooter({ darkGradient = true }) {
                 : "font-black tracking-tight text-slate-950"
             }
           >
-            Built by Areivan
+            {pageCopy.footer.brand}
           </p>
-          <p className="mt-1">Robotics engineering student</p>
+          <p className="mt-1">{pageCopy.footer.subtitle}</p>
         </div>
         <p className="max-w-xl leading-6 md:text-right">
-          Focused on automation, industrial systems and software products.
+          {pageCopy.footer.description}
         </p>
       </div>
     </footer>

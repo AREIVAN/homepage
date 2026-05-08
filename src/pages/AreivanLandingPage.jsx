@@ -1,13 +1,16 @@
 import { useState } from "react";
 import { AnimatePresence, useReducedMotion } from "framer-motion";
-import ProjectPreviewModal from "../components/modals/ProjectPreviewModal.jsx";
-import ContactModal from "../components/modals/ContactModal.jsx";
-import ApproachSection from "../sections/home/ApproachSection.jsx";
-import CapabilitiesSection from "../sections/home/CapabilitiesSection.jsx";
-import HomeHeroSection from "../sections/home/HomeHeroSection.jsx";
-import NowSection from "../sections/home/NowSection.jsx";
-import ContactCtaSection from "../sections/shared/ContactCtaSection.jsx";
-import SiteFooter from "../sections/shared/SiteFooter.jsx";
+import {
+  ContactModal,
+  ProjectPreviewModal,
+} from "../components/modals/index.js";
+import {
+  ApproachSection,
+  CapabilitiesSection,
+  HomeHeroSection,
+  NowSection,
+} from "../sections/home/index.js";
+import { ContactCtaSection, SiteFooter } from "../sections/shared/index.js";
 
 export default function AreivanLandingPage() {
   const [selectedProject, setSelectedProject] = useState(null);
